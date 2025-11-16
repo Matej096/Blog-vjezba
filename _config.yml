@@ -1,6 +1,10 @@
 title: "Blog-vjezba"
-url: "https://matej096.github.io"
-baseurl: "/Blog-vjezba" # ime tvog repo-a
+
+# Netlify domena:
+url: "https://blog-vjezba.netlify.app"
+
+# NA NETLIFYJU MORA BITI PRAZNO:
+baseurl: ""
 
 collections:
   vjencanja:
