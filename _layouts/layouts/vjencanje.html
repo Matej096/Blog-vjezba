@@ -1,143 +1,22 @@
 ---
+layout: default
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>{{ page.title }}</title>
+<div class="post-img">
+  <img src="{{ page.cover_image | relative_url }}" alt="" class="img-fluid" />
+</div>
 
-    <!-- Favicons -->
-    <link href="{{ '/assets/img/favicon.png' | relative_url }}" rel="icon" />
-    <link
-      href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}"
-      rel="apple-touch-icon"
-    />
+<h2 class="title">{{ page.title }}</h2>
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Vendor CSS Files -->
-    <link
-      href="{{ '/assets/vendor/bootstrap/css/bootstrap.min.css' | relative_url }}"
-      rel="stylesheet"
-    />
-    <link
-      href="{{ '/assets/vendor/bootstrap-icons/bootstrap-icons.css' | relative_url }}"
-      rel="stylesheet"
-    />
-    <link
-      href="{{ '/assets/vendor/aos/aos.css' | relative_url }}"
-      rel="stylesheet"
-    />
-    <link
-      href="{{ '/assets/vendor/swiper/swiper-bundle.min.css' | relative_url }}"
-      rel="stylesheet"
-    />
-
-    <!-- Main CSS File -->
-    <link href="{{ '/assets/css/main.css' | relative_url }}" rel="stylesheet" />
-  </head>
-
-  <body class="single-post-page">
-    <header id="header" class="header d-flex align-items-center sticky-top">
-      <div
-        class="container position-relative d-flex align-items-center justify-content-between"
+<div class="meta-top">
+  <ul>
+    <li class="d-flex align-items-center">
+      <i class="bi bi-clock"></i>
+      <time datetime="{{ page.date }}"
+        >{{ page.date | date: "%b %-d, %Y" }}</time
       >
-        <a
-          href="{{ '/index.html' | relative_url }}"
-          class="logo d-flex align-items-center me-auto me-xl-0"
-        >
-          <h1 class="sitename">ZenBlog</h1>
-        </a>
+    </li>
+  </ul>
+</div>
 
-        <nav id="navmenu" class="navmenu">
-          <ul>
-            <li><a href="{{ '/index.html' | relative_url }}">Home</a></li>
-            <li><a href="{{ '/about.html' | relative_url }}">About</a></li>
-            <li>
-              <a href="{{ '/vjencanja.html' | relative_url }}" class="active"
-                >Vjenčanja</a
-              >
-            </li>
-            <li><a href="{{ '/contact.html' | relative_url }}">Contact</a></li>
-          </ul>
-          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-        </nav>
-      </div>
-    </header>
-
-    <main class="main">
-      <div class="page-title">
-        <div
-          class="container d-lg-flex justify-content-between align-items-center"
-        >
-          <h1 class="mb-2 mb-lg-0">{{ page.title }}</h1>
-          <nav class="breadcrumbs">
-            <ol>
-              <li><a href="{{ '/index.html' | relative_url }}">Home</a></li>
-              <li>
-                <a href="{{ '/vjencanja.html' | relative_url }}">Vjenčanja</a>
-              </li>
-              <li class="current">{{ page.title }}</li>
-            </ol>
-          </nav>
-        </div>
-      </div>
-
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8">
-            <section id="blog-details" class="blog-details section">
-              <div class="container">
-                <article class="article">
-                  <div class="post-img">
-                    <img
-                      src="{{ page.cover_image | relative_url }}"
-                      alt=""
-                      class="img-fluid"
-                    />
-                  </div>
-
-                  <div class="meta-top">
-                    <ul>
-                      <li class="d-flex align-items-center">
-                        <i class="bi bi-clock"></i>
-                        <time datetime="{{ page.date | date_to_xmlschema }}">
-                          {{ page.date | date: "%b %-d, %Y" }}
-                        </time>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div class="content">{{ content }}</div>
-                </article>
-              </div>
-            </section>
-          </div>
-
-          <div class="col-lg-4 sidebar">
-            <!-- tu može ostati tvoj sidebar / widgets ako želiš, preskočio sam radi kraće verzije -->
-          </div>
-        </div>
-      </div>
-    </main>
-
-    <footer id="footer" class="footer dark-background">
-      <!-- tvoj footer može ostati isti kao u originalnom templateu -->
-    </footer>
-
-    <!-- JS -->
-    <script src="{{ '/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' | relative_url }}"></script>
-    <script src="{{ '/assets/vendor/php-email-form/validate.js' | relative_url }}"></script>
-    <script src="{{ '/assets/vendor/aos/aos.js' | relative_url }}"></script>
-    <script src="{{ '/assets/vendor/swiper/swiper-bundle.min.js' | relative_url }}"></script>
-    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
-  </body>
-</html>
+<div class="content">{{ content }}</div>
