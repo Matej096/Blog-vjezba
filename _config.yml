@@ -1,9 +1,20 @@
 title: "Blog-vjezba"
 
-url: "https://blog-vjezba.netlify.app" # Netlify domena
-baseurl: "" # VAŽNO: prazno na Netlifyu
+# Netlify domena
+url: "https://blog-vjezba.netlify.app"
+
+# Na Netlifyju MORA biti prazno
+baseurl: ""
 
 collections:
   vjencanja:
-    output: true
-    permalink: "/vjencanja/:name/"
+    output: true # << OVO je ključno da se generiraju stranice
+    permalink: "/vjencanja/:name/" # /vjencanja/IME-FILEA/
+
+# (nije obavezno, ali jako korisno: default layout za vjenčanja)
+defaults:
+  - scope:
+      path: "_vjencanja"
+      type: "vjencanja"
+    values:
+      layout: "vjencanje"
