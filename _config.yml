@@ -1,10 +1,7 @@
 title: "Blog-vjezba"
 
-# Netlify domena:
-url: "https://blog-vjezba.netlify.app"
-
-# NA NETLIFYJU MORA BITI PRAZNO:
-baseurl: ""
+url: "https://blog-vjezba.netlify.app" # Netlify domena
+baseurl: "" # VAŽNO: prazno na Netlifyu
 
 collections:
   vjencanja:
