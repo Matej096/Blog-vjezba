@@ -1,9 +1,9 @@
 ---
 layout: vjencanje
-title: "Vjenčanje 2 naslov"
-date: 2024-06-01
-cover_image: /assets/img/post-landscape-2.jpg
-excerpt: "Kratki opis vjenčanja 2..."
+title: "Vjenčanje 2 – Ana & Luka"
+date: 2024-06-10
+cover_image: /Blog-vjezba/assets/img/post-landscape-2.jpg
+excerpt: "Kratki opis vjenčanja 2."
 ---
 
-Tekst vjenčanja 2...
+Ovdje ide priča vjenčanja 2.

@@ -1,10 +1,10 @@
 ---
 layout: vjencanje
-title: "Vjenčanje 1 naslov teksta ovdje"
-date: 2024-05-10
-cover_image: /assets/img/blog/blog-1.jpg
-excerpt: "Kratki opis vjenčanja 1 koji će se vidjeti na listi."
+title: "Vjenčanje 1 – Iva & Marko"
+date: 2024-05-01
+cover_image: /Blog-vjezba/assets/img/post-landscape-2.jpg
+excerpt: "Kratki opis vjenčanja 1, more, sunce, Split."
 ---
 
-Ovdje piše cijela priča vjenčanja 1.  
-Možeš koristiti **bold**, _italic_, naslove itd.
+Ovdje ide priča vjenčanja 1.  
+Možeš pisati normalan tekst, koristiti **bold**, _italic_ itd.
