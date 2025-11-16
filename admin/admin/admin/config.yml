@@ -1,0 +1,25 @@
+backend:
+  name: github
+  repo: matej996/Blog-vjezba # zamijeni ako repo nije točno ovo
+  branch: main
+
+media_folder: "assets/img/uploads"
+public_folder: "/assets/img/uploads"
+
+collections:
+  - name: "vjencanja"
+    label: "Vjenčanja"
+    folder: "_vjencanja"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Naslov", name: "title", widget: "string" }
+      - { label: "Datum", name: "date", widget: "datetime" }
+      - { label: "Cover slika", name: "cover_image", widget: "image" }
+      - {
+          label: "Kratki opis",
+          name: "excerpt",
+          widget: "text",
+          required: false,
+        }
+      - { label: "Tekst", name: "body", widget: "markdown" }

@@ -1,0 +1,8 @@
+title: "Blog-vjezba"
+baseurl: "" # ostavi prazno na GitHub Pages repo siteu
+url: "https://matej996.github.io"
+
+collections:
+  vjencanja:
+    output: true
+    permalink: /vjencanja/:slug/
