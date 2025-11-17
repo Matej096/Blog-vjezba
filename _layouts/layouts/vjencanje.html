@@ -1,22 +1,220 @@
 ---
-layout: default
 ---
 
-<div class="post-img">
-  <img src="{{ page.cover_image | relative_url }}" alt="" class="img-fluid" />
-</div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-<h2 class="title">{{ page.title }}</h2>
+    <title>{{ page.title }}</title>
 
-<div class="meta-top">
-  <ul>
-    <li class="d-flex align-items-center">
-      <i class="bi bi-clock"></i>
-      <time datetime="{{ page.date }}"
-        >{{ page.date | date: "%b %-d, %Y" }}</time
+    <!-- Favicons -->
+    <link href="{{ '/assets/img/favicon.png' | relative_url }}" rel="icon" />
+    <link
+      href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}"
+      rel="apple-touch-icon"
+    />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=EB+Garamond:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link
+      href="{{ '/assets/vendor/bootstrap/css/bootstrap.min.css' | relative_url }}"
+      rel="stylesheet"
+    />
+    <link
+      href="{{ '/assets/vendor/bootstrap-icons/bootstrap-icons.css' | relative_url }}"
+      rel="stylesheet"
+    />
+    <link
+      href="{{ '/assets/vendor/aos/aos.css' | relative_url }}"
+      rel="stylesheet"
+    />
+    <link
+      href="{{ '/assets/vendor/swiper/swiper-bundle.min.css' | relative_url }}"
+      rel="stylesheet"
+    />
+
+    <!-- Main CSS File -->
+    <link href="{{ '/assets/css/main.css' | relative_url }}" rel="stylesheet" />
+  </head>
+
+  <body class="single-post-page">
+    <!-- HEADER (možeš prilagoditi ako već imaš svoj) -->
+    <header id="header" class="header d-flex align-items-center sticky-top">
+      <div
+        class="container position-relative d-flex align-items-center justify-content-between"
       >
-    </li>
-  </ul>
-</div>
+        <a
+          href="{{ '/index.html' | relative_url }}"
+          class="logo d-flex align-items-center me-auto me-xl-0"
+        >
+          <h1 class="sitename">ZenBlog</h1>
+        </a>
 
-<div class="content">{{ content }}</div>
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="{{ '/index.html' | relative_url }}">Home</a></li>
+            <li><a href="{{ '/about.html' | relative_url }}">About</a></li>
+            <li>
+              <a href="{{ '/vjencanja.html' | relative_url }}" class="active"
+                >Vjenčanja</a
+              >
+            </li>
+            <li><a href="{{ '/contact.html' | relative_url }}">Contact</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main">
+      <!-- HERO COVER SLIKA PREKO CIJELE ŠIRINE -->
+      {% if page.cover_image %}
+      <section class="wedding-hero">
+        <img
+          src="{{ page.cover_image | relative_url }}"
+          alt="{{ page.title }}"
+          class="img-fluid w-100"
+          style="max-height: 520px; object-fit: cover"
+        />
+      </section>
+      {% endif %}
+
+      <!-- PAGE TITLE + BREADCRUMBS -->
+      <div class="page-title">
+        <div
+          class="container d-lg-flex justify-content-between align-items-center"
+        >
+          <div>
+            <h1 class="mb-1">{{ page.title }}</h1>
+            {% if page.couple %}
+            <p class="mb-0 text-muted">{{ page.couple }}</p>
+            {% endif %}
+          </div>
+
+          <nav class="breadcrumbs">
+            <ol>
+              <li><a href="{{ '/index.html' | relative_url }}">Home</a></li>
+              <li>
+                <a href="{{ '/vjencanja.html' | relative_url }}">Vjenčanja</a>
+              </li>
+              <li class="current">{{ page.title }}</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+
+      <!-- GLAVNI SADRŽAJ -->
+      <div class="container my-5">
+        <div class="row g-5">
+          <!-- LIJEVA KOLONA: TEKST -->
+          <div class="col-lg-8">
+            <article class="article">
+              <div class="meta-top mb-3">
+                <ul class="list-inline small text-muted mb-0">
+                  <li class="list-inline-item me-3">
+                    <i class="bi bi-calendar-event me-1"></i>
+                    {% if page.date %}
+                    <time datetime="{{ page.date | date_to_xmlschema }}">
+                      {{ page.date | date: "%-d.%m.%Y" }}
+                    </time>
+                    {% else %} Bez datuma {% endif %}
+                  </li>
+
+                  {% if page.location %}
+                  <li class="list-inline-item">
+                    <i class="bi bi-geo-alt me-1"></i>{{ page.location }}
+                  </li>
+                  {% endif %}
+                </ul>
+              </div>
+
+              <div class="content">{{ content }}</div>
+
+              <!-- GALERIJA -->
+              {% if page.gallery %}
+              <hr class="my-5" />
+              <h2 class="h4 mb-4">Galerija</h2>
+              <div class="row g-3">
+                {% for item in page.gallery %}
+                <div class="col-6 col-md-4">
+                  <a
+                    href="{{ item.image | relative_url }}"
+                    target="_blank"
+                    class="d-block"
+                  >
+                    <img
+                      src="{{ item.image | relative_url }}"
+                      class="img-fluid rounded-3"
+                      alt=""
+                    />
+                  </a>
+                </div>
+                {% endfor %}
+              </div>
+              {% endif %}
+            </article>
+          </div>
+
+          <!-- DESNA KOLONA: INFO BOX + BACK GUMB -->
+          <div class="col-lg-4">
+            <aside class="wedding-sidebar">
+              <div class="card border-0 shadow-sm mb-4 rounded-4">
+                <div class="card-body">
+                  <h2 class="h5 mb-3">Detalji vjenčanja</h2>
+                  <ul class="list-unstyled small mb-0">
+                    {% if page.couple %}
+                    <li class="mb-2">
+                      <strong>Par:</strong> {{ page.couple }}
+                    </li>
+                    {% endif %} {% if page.date %}
+                    <li class="mb-2">
+                      <strong>Datum:</strong>
+                      {{ page.date | date: "%-d.%m.%Y" }}
+                    </li>
+                    {% endif %} {% if page.location %}
+                    <li class="mb-2">
+                      <strong>Lokacija:</strong> {{ page.location }}
+                    </li>
+                    {% endif %} {% if page.excerpt %}
+                    <li class="mb-0">
+                      <strong>Kratki opis:</strong><br />
+                      {{ page.excerpt }}
+                    </li>
+                    {% endif %}
+                  </ul>
+                </div>
+              </div>
+
+              <a
+                href="{{ '/vjencanja.html' | relative_url }}"
+                class="btn btn-outline-primary w-100 rounded-pill"
+              >
+                ← Nazad na sva vjenčanja
+              </a>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer dark-background">
+      <!-- možeš ovdje staviti isti footer kao na drugim stranicama -->
+    </footer>
+
+    <!-- JS Files -->
+    <script src="{{ '/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' | relative_url }}"></script>
+    <script src="{{ '/assets/vendor/php-email-form/validate.js' | relative_url }}"></script>
+    <script src="{{ '/assets/vendor/aos/aos.js' | relative_url }}"></script>
+    <script src="{{ '/assets/vendor/swiper/swiper-bundle.min.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+  </body>
+</html>

@@ -1,10 +1,3 @@
-backend:
-  name: git-gateway
-  branch: main
-
-media_folder: "assets/img/uploads"
-public_folder: "/assets/img/uploads"
-
 collections:
   - name: "vjencanja"
     label: "Vjenčanja"
@@ -16,9 +9,30 @@ collections:
       - { label: "Datum", name: "date", widget: "datetime" }
       - { label: "Cover slika", name: "cover_image", widget: "image" }
       - {
+          label: "Imena para",
+          name: "couple",
+          widget: "string",
+          required: false,
+        }
+      - {
+          label: "Lokacija",
+          name: "location",
+          widget: "string",
+          required: false,
+        }
+      - {
           label: "Kratki opis",
           name: "excerpt",
           widget: "text",
           required: false,
         }
       - { label: "Tekst", name: "body", widget: "markdown" }
+      - label: "Galerija"
+        name: "gallery"
+        widget: "list"
+        required: false
+        hint: "Dodaj više fotografija za galeriju"
+        field:
+          label: "Fotografija"
+          name: "image"
+          widget: "image"
