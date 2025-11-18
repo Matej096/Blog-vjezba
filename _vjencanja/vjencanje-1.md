@@ -1,11 +1,11 @@
 ---
-layout: vjencanje
-title: "Vjenčanje 1 – Iva & Marko"
-date: 2024-05-01
-cover_image: /assets/img/post-landscape-2.jpg
-excerpt: "Kratki opis vjenčanja 1, more, sunce, Split."
-layout: vjencanje
+title: Ljetno vjenčanje
+date: 2025-11-18T19:16:00.000+01:00
+cover_image: /assets/img/uploads/pexels-muhammadendry-32314301.jpg
+couple: Ines i Jan
+location: Zagreb
+excerpt: Pozdrav iz Zagreba
+gallery:
+  - image: /assets/img/uploads/pexels-fabio-carvalho-861707-26569428.jpg
 ---
-
-Ovdje ide priča vjenčanja 1.  
-Možeš pisati normalan tekst, koristiti **bold**, _italic_ itd.
+Predivno sunčano vjenčanje
