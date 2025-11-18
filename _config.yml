@@ -11,6 +11,8 @@ collections:
     output: true # << OVO je ključno da se generiraju stranice
     permalink: "/vjencanja/:name/" # /vjencanja/IME-FILEA/
 
+  rucni_rad:
+    output: true
 # (nije obavezno, ali jako korisno: default layout za vjenčanja)
 defaults:
   - scope:
@@ -18,3 +20,8 @@ defaults:
       type: "vjencanja"
     values:
       layout: "vjencanje"
+  - scope:
+      path: "_rucni_rad"
+      type: "rucni_rad"
+    values:
+      layout: "proizvodi"
