@@ -62,7 +62,7 @@ collections:
         widget: "list"
         field: { label: "Slika", name: "image", widget: "image" }
       - { name: "body", label: "Opis proizvoda", widget: "markdown" }
-      - { name: "layout", widget: "hidden", default: "proizvod" }
+      - { name: "layout", widget: "hidden", default: "proizvodi" }
       - {
           name: "materials",
           label: "Materijali",
