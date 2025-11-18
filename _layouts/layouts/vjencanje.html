@@ -144,15 +144,16 @@
               <hr class="my-5" />
               <h2 class="h4 mb-4">Galerija</h2>
               <div class="row g-3">
-                {% for item in page.gallery %}
+                {% for item in page.gallery %} {% assign src = item.image |
+                default: item %}
                 <div class="col-6 col-md-4">
                   <a
-                    href="{{ item.image | relative_url }}"
+                    href="{{ src | relative_url }}"
                     target="_blank"
                     class="d-block"
                   >
                     <img
-                      src="{{ item.image | relative_url }}"
+                      src="{{ src | relative_url }}"
                       class="img-fluid rounded-3"
                       alt=""
                     />

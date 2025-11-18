@@ -39,7 +39,11 @@ collections:
         widget: "list"
         required: false
         hint: "Dodaj više fotografija za galeriju"
-        field:
-          label: "Fotografija"
-          name: "image"
-          widget: "image"
+        fields:
+          - { label: "Fotografija", name: "image", widget: "image" }
+          - {
+              label: "Alt tekst",
+              name: "alt",
+              widget: "string",
+              required: false,
+            }
