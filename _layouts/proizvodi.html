@@ -1,34 +1,199 @@
+---
+---
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
     <title>{{ page.title }}</title>
-    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" />
+
+    <!-- Favicons -->
+    <link href="{{ '/assets/img/favicon.png' | relative_url }}" rel="icon" />
+    <link
+      href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}"
+      rel="apple-touch-icon"
+    />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=EB+Garamond:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link
+      href="{{ '/assets/vendor/bootstrap/css/bootstrap.min.css' | relative_url }}"
+      rel="stylesheet"
+    />
+    <link
+      href="{{ '/assets/vendor/bootstrap-icons/bootstrap-icons.css' | relative_url }}"
+      rel="stylesheet"
+    />
+    <link
+      href="{{ '/assets/vendor/aos/aos.css' | relative_url }}"
+      rel="stylesheet"
+    />
+    <link
+      href="{{ '/assets/vendor/swiper/swiper-bundle.min.css' | relative_url }}"
+      rel="stylesheet"
+    />
+
+    <!-- Main CSS File -->
+    <link href="{{ '/assets/css/main.css' | relative_url }}" rel="stylesheet" />
   </head>
 
   <body class="single-product-page">
-    <main class="container my-5">
-      <h1>{{ page.title }}</h1>
+    <!-- HEADER -->
+    <header id="header" class="header d-flex align-items-center sticky-top">
+      <div
+        class="container position-relative d-flex align-items-center justify-content-between"
+      >
+        <a
+          href="{{ '/index.html' | relative_url }}"
+          class="logo d-flex align-items-center me-auto me-xl-0"
+        >
+          <h1 class="sitename">ZenBlog</h1>
+        </a>
 
-      {% if page.price %}
-      <p><strong>Cijena:</strong> {{ page.price }}</p>
-      {% endif %} {% if page.cover_image %}
-      <img src="{{ page.cover_image | relative_url }}" class="img-fluid mb-4" />
-      {% endif %}
-
-      <div class="content">{{ content }}</div>
-
-      {% if page.gallery %}
-      <h2>Galerija</h2>
-      <div class="row g-3">
-        {% for item in page.gallery %} {% assign src = item.image | default:
-        item %}
-        <div class="col-6 col-md-4">
-          <img src="{{ src | relative_url }}" class="img-fluid rounded" />
-        </div>
-        {% endfor %}
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="{{ '/index.html' | relative_url }}">Home</a></li>
+            <li><a href="{{ '/about.html' | relative_url }}">About</a></li>
+            <li>
+              <a href="{{ '/vjencanja.html' | relative_url }}">Vjenčanja</a>
+            </li>
+            <li>
+              <a href="{{ '/rucni-rad.html' | relative_url }}" class="active"
+                >Ručni rad</a
+              >
+            </li>
+            <li><a href="{{ '/contact.html' | relative_url }}">Contact</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
       </div>
+    </header>
+
+    <main class="main">
+      <!-- HERO COVER SLIKA PREKO CIJELE ŠIRINE -->
+      {% if page.cover_image %}
+      <section class="product-hero">
+        <img
+          src="{{ page.cover_image | relative_url }}"
+          alt="{{ page.title }}"
+          class="img-fluid w-100"
+          style="max-height: 520px; object-fit: cover"
+        />
+      </section>
       {% endif %}
+
+      <!-- PAGE TITLE + BREADCRUMBS -->
+      <div class="page-title">
+        <div
+          class="container d-lg-flex justify-content-between align-items-center"
+        >
+          <div>
+            <h1 class="mb-1">{{ page.title }}</h1>
+
+            {% if page.price %}
+            <p class="mb-0 text-muted">
+              <strong>Cijena:</strong> {{ page.price }}
+            </p>
+            {% endif %}
+          </div>
+
+          <nav class="breadcrumbs">
+            <ol>
+              <li><a href="{{ '/index.html' | relative_url }}">Home</a></li>
+              <li>
+                <a href="{{ '/rucni-rad.html' | relative_url }}">Ručni rad</a>
+              </li>
+              <li class="current">{{ page.title }}</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+
+      <!-- GLAVNI SADRŽAJ -->
+      <div class="container my-5">
+        <div class="row g-5">
+          <!-- LIJEVA KOLONA: OPIS PROIZVODA -->
+          <div class="col-lg-8">
+            <article class="article">
+              <div class="content">{{ content }}</div>
+
+              <!-- GALERIJA PROIZVODA -->
+              {% if page.gallery %}
+              <hr class="my-5" />
+              <h2 class="h4 mb-4">Galerija proizvoda</h2>
+              <div class="row g-3">
+                {% for item in page.gallery %} {% assign src = item.image |
+                default: item %}
+                <div class="col-6 col-md-4">
+                  <a
+                    href="{{ src | relative_url }}"
+                    target="_blank"
+                    class="d-block"
+                  >
+                    <img
+                      src="{{ src | relative_url }}"
+                      class="img-fluid rounded-3"
+                      alt=""
+                    />
+                  </a>
+                </div>
+                {% endfor %}
+              </div>
+              {% endif %}
+            </article>
+          </div>
+
+          <!-- DESNA KOLONA: INFO BOX + BACK GUMB -->
+          <div class="col-lg-4">
+            <aside class="product-sidebar">
+              <div class="card border-0 shadow-sm mb-4 rounded-4">
+                <div class="card-body">
+                  <h2 class="h5 mb-3">Detalji proizvoda</h2>
+                  <ul class="list-unstyled small mb-0">
+                    {% if page.price %}
+                    <li class="mb-2">
+                      <strong>Cijena:</strong> {{ page.price }}
+                    </li>
+                    {% endif %} {% if page.excerpt %}
+                    <li class="mb-0">
+                      <strong>Kratki opis:</strong><br />
+                      {{ page.excerpt }}
+                    </li>
+                    {% endif %}
+                  </ul>
+                </div>
+              </div>
+
+              <a
+                href="{{ '/rucni-rad.html' | relative_url }}"
+                class="btn btn-outline-primary w-100 rounded-pill"
+              >
+                ← Nazad na ručni rad
+              </a>
+            </aside>
+          </div>
+        </div>
+      </div>
     </main>
+
+    <footer id="footer" class="footer dark-background">
+      <!-- ovdje može ići isti footer kao na ostalim stranicama -->
+    </footer>
+
+    <!-- JS Files -->
+    <script src="{{ '/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' | relative_url }}"></script>
+    <script src="{{ '/assets/vendor/php-email-form/validate.js' | relative_url }}"></script>
+    <script src="{{ '/assets/vendor/aos/aos.js' | relative_url }}"></script>
+    <script src="{{ '/assets/vendor/swiper/swiper-bundle.min.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
   </body>
 </html>
