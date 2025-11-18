@@ -47,3 +47,37 @@ collections:
               widget: "string",
               required: false,
             }
+
+  - name: "rucni_rad" # naziv kolekcije
+    label: "Ručni rad" # što CMS prikazuje
+    folder: "_rucni_rad" # gdje se spremaju .md fajlovi
+    create: true # možeš dodavati nove
+    slug: "{{slug}}" # adresa proizvoda
+    fields:
+      - { name: "title", label: "Naziv proizvoda", widget: "string" }
+      - { name: "price", label: "Cijena", widget: "string", required: false }
+      - { name: "cover_image", label: "Glavna slika", widget: "image" }
+      - label: "Galerija"
+        name: "gallery"
+        widget: "list"
+        field: { label: "Slika", name: "image", widget: "image" }
+      - { name: "body", label: "Opis proizvoda", widget: "markdown" }
+      - { name: "layout", widget: "hidden", default: "proizvod" }
+      - {
+          name: "materials",
+          label: "Materijali",
+          widget: "list",
+          required: false,
+        }
+      - {
+          name: "dimensions",
+          label: "Dimenzije",
+          widget: "string",
+          required: false,
+        }
+      - {
+          name: "availability",
+          label: "Dostupnost",
+          widget: "string",
+          required: false,
+        }

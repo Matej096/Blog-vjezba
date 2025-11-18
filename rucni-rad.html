@@ -1,0 +1,20 @@
+---
+layout: default
+title: Ručni rad
+---
+
+<h1>Ručni rad</h1>
+
+<div class="row">
+  {% for proizvod in site.rucni_rad %}
+  <div class="col-md-4 mb-4">
+    <a href="{{ proizvod.url | relative_url }}">
+      <img src="{{ proizvod.cover_image }}" class="img-fluid mb-2" />
+      <h3>{{ proizvod.title }}</h3>
+      {% if proizvod.price %}
+      <p>{{ proizvod.price }}</p>
+      {% endif %}
+    </a>
+  </div>
+  {% endfor %}
+</div>
